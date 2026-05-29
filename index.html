@@ -251,6 +251,125 @@
     line-height: 1.75;
   }
 
+  /* VALUE PROPOSITIONS */
+  .value-section {
+    max-width: 1200px;
+  }
+
+  .value-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin-bottom: 6rem;
+  }
+
+  .value-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .value-block:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .value-block--solo {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+  }
+
+  .value-block-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .value-block-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+  }
+
+  .value-block-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .value-block-lead {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(245,242,236,0.75);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .value-block-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .value-block-list li {
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: rgba(245,242,236,0.85);
+    line-height: 1.65;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .value-block-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+  }
+
+  .value-block-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .value-block-visual img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45));
+  }
+
+  .value-block--mechanical {
+    padding-top: 1rem;
+    border-bottom: none;
+  }
+
+  .value-block--mechanical .value-block-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+  }
+
+  .value-block-note {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 1.25rem;
+  }
+
   /* OBJECTIONS */
   .objections-title {
     font-family: var(--font-display);
@@ -652,6 +771,10 @@
     .how-step { padding: 1.25rem; }
     .how-step:first-child { padding-left: 1.25rem; border-left: none; }
     .landing-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .value-block { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 3rem; }
+    .value-block-visual { order: -1; }
+    .value-block-visual img { max-width: 280px; margin: 0 auto; }
+    .value-blocks { gap: 3rem; margin-bottom: 4rem; }
     .objection-item { grid-template-columns: 1fr; gap: 1rem; }
     .team-grid { grid-template-columns: 1fr; }
     /* GRILLA DELIVERABLES: 1 columna en mobile */
@@ -702,17 +825,70 @@
 </section>
 
 
-<!-- LANDING — INTRO -->
-<section class="landing-section">
-  <div class="landing-intro">
-    <div class="landing-intro-headline">
-      No somos una<br>consultora.<br><em>Somos tu equipo.</em>
-    </div>
-    <div class="landing-intro-body">
-      <p style="margin-bottom: 1rem;">Las empresas que necesitan desarrollar un producto electrónico enfrentan siempre el mismo dilema: armar un equipo interno, con todos los costos que eso implica, o tercerizar en freelancers desconectados que no entienden bien el negocio.</p>
-      <p style="margin-bottom: 1rem;">FORJA es una tercera opción. Somos ingenieros con experiencia real en electrónica automotriz, firmware embebido, fabricación en China y gestión de proyectos técnicos complejos.</p>
-      <p>No facturamos por hora. Y cuando terminamos, <strong style="color: var(--white);">el diseño es 100% tuyo.</strong></p>
-    </div>
+<!-- LANDING — VALUE PROPS -->
+<section class="landing-section value-section">
+  <p class="section-label">Por qué FORJA</p>
+
+  <div class="value-blocks">
+
+    <article class="value-block value-block--solo">
+      <div>
+        <p class="value-block-num">01 — Equipo, no freelancers</p>
+        <h2 class="value-block-title">No contrates freelancers.<br><em>Contratá un equipo.</em></h2>
+        <p class="value-block-lead">Un producto electrónico no se arma con piezas sueltas. Necesitás gente que hable el mismo idioma técnico y de negocio, y que se haga cargo de punta a punta.</p>
+        <ul class="value-block-list">
+          <li>Equipo de ingeniería con experiencia real en desarrollo y fabricación en China.</li>
+          <li>Escuchamos tus requerimientos y los convertimos en un producto concreto — no en un informe que queda en un cajón.</li>
+          <li>A diferencia de un freelancer, somos un equipo que lleva tu proyecto de principio a fin, con un solo interlocutor.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="value-block">
+      <div>
+        <p class="value-block-num">02 — Producto listo, no consultoría</p>
+        <h2 class="value-block-title">No somos una consultora.<br><em>Te entregamos tu producto.</em></h2>
+        <p class="value-block-lead">Cuando cerramos, no te vamos con recomendaciones: te vamos con un paquete listo para fabricar en China.</p>
+        <ul class="value-block-list">
+          <li>MVP funcional para probar con usuarios o inversores.</li>
+          <li>Documentación técnica y de producción.</li>
+          <li>Planos, gerbers, BOM y código fuente — todo tuyo, sin restricciones.</li>
+        </ul>
+      </div>
+      <div class="value-block-visual" aria-hidden="true">
+        <img src="assets/pcb.png" alt="Vista explotada de un PCB con capas y trazas" width="420" height="420" loading="lazy" />
+      </div>
+    </article>
+
+    <article class="value-block value-block--solo">
+      <div>
+        <p class="value-block-num">03 — Argentina + China</p>
+        <h2 class="value-block-title">Diseño en Argentina.<br><em>Fabricación en China.</em></h2>
+        <p class="value-block-lead">Diseñamos acá, cerca tuyo, con reuniones en tu idioma y en tu huso horario. Fabricamos allá, donde la escala y el costo tienen sentido — con proveedores que ya conocemos de primera mano.</p>
+        <ul class="value-block-list">
+          <li>Ingeniería y seguimiento del proyecto desde Buenos Aires.</li>
+          <li>Cartera de fabricantes en China validada en visitas a planta.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="value-block value-block--mechanical">
+      <div>
+        <p class="value-block-num">Diseño mecánico</p>
+        <h2 class="value-block-title">Gabinetes y piezas plásticas</h2>
+        <p class="value-block-lead">Tu producto no termina en la placa. Tenemos ingenieros mecánicos en el equipo para diseñar carcasas, soportes y piezas plásticas listas para producir.</p>
+        <ul class="value-block-list">
+          <li>Prototipos en impresión 3D para validar ergonomía y ensamble.</li>
+          <li>Piezas en molde de silicona para series cortas antes de la inyección.</li>
+          <li>Diseño orientado a inyección plástica cuando llegue el volumen.</li>
+        </ul>
+        <p class="value-block-note">Hardware + mecánica + firmware en un solo equipo.</p>
+      </div>
+      <div class="value-block-visual" aria-hidden="true">
+        <img src="assets/housing.png" alt="Vista explotada de un gabinete plástico con tornillería" width="420" height="420" loading="lazy" />
+      </div>
+    </article>
+
   </div>
 
   <!-- OBJECTIONS -->
@@ -750,7 +926,7 @@
   <div class="objection-item">
     <div class="objection-q">"¿Qué pasa si necesito también carcasa, diseño mecánico, o una app?"</div>
     <div class="objection-a">
-      Contamos con ingenieros mecánicos para diseño de piezas listas para inyección en moldes con simulaciones estáticas y dinámicas. Y Leandro tiene vasta experiencia en desarrollo de software, apps móviles y plataformas SaaS. <strong>Un proveedor. Todo el producto.</strong>
+      Gabinetes, piezas plásticas (3D, molde de silicona o inyección) y firmware en el mismo proyecto. Leandro cubre apps móviles, plataformas web y cloud cuando hace falta. <strong>Un proveedor. Todo el producto.</strong>
     </div>
   </div>
 </section>
