@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" fill="none">
+  <rect width="420" height="420" fill="#0A0A08"/>
+  <!-- connecting lines -->
+  <path d="M105 195 L210 165 L315 195" stroke="#E8521A" stroke-width="1.5" stroke-opacity="0.45"/>
+  <path d="M105 195 L210 240 L315 195" stroke="#F5F2EC" stroke-width="1" stroke-opacity="0.12"/>
+  <!-- member 1 -->
+  <circle cx="105" cy="178" r="18" stroke="#F5F2EC" stroke-width="2" stroke-opacity="0.55"/>
+  <path d="M78 248 Q105 218 132 248 L132 268 Q105 252 78 268 Z" stroke="#F5F2EC" stroke-width="2" stroke-opacity="0.35" fill="none"/>
+  <!-- member 2 (lead, orange) -->
+  <circle cx="210" cy="148" r="22" stroke="#E8521A" stroke-width="2.5"/>
+  <path d="M178 228 Q210 192 242 228 L242 252 Q210 232 178 252 Z" stroke="#E8521A" stroke-width="2.5" fill="rgba(232,82,26,0.08)"/>
+  <!-- member 3 -->
+  <circle cx="315" cy="178" r="18" stroke="#F5F2EC" stroke-width="2" stroke-opacity="0.55"/>
+  <path d="M288 248 Q315 218 342 248 L342 268 Q315 252 288 268 Z" stroke="#F5F2EC" stroke-width="2" stroke-opacity="0.35" fill="none"/>
+  <!-- member 4 -->
+  <circle cx="210" cy="268" r="16" stroke="#F5F2EC" stroke-width="1.5" stroke-opacity="0.4"/>
+  <path d="M188 318 Q210 296 232 318 L232 332 Q210 320 188 332 Z" stroke="#F5F2EC" stroke-width="1.5" stroke-opacity="0.25" fill="none"/>
+  <!-- subtle ring -->
+  <circle cx="210" cy="210" r="118" stroke="#F5F2EC" stroke-width="1" stroke-opacity="0.06"/>
+</svg>

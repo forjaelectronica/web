@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" fill="none">
+  <rect width="420" height="420" fill="#0A0A08"/>
+  <!-- route arc -->
+  <path d="M95 260 C160 120, 260 120, 325 260" stroke="#E8521A" stroke-width="2" stroke-dasharray="8 6" stroke-opacity="0.7"/>
+  <!-- plane dot -->
+  <circle cx="210" cy="168" r="5" fill="#E8521A"/>
+  <path d="M204 168 L216 168 M210 162 L210 174" stroke="#0A0A08" stroke-width="1.5"/>
+  <!-- Argentina side -->
+  <circle cx="95" cy="260" r="28" stroke="#F5F2EC" stroke-width="2" stroke-opacity="0.5"/>
+  <circle cx="95" cy="260" r="8" fill="#E8521A"/>
+  <path d="M95 248 L95 272 M83 260 L107 260" stroke="#F5F2EC" stroke-width="1.5" stroke-opacity="0.35"/>
+  <!-- simplified map wedge -->
+  <path d="M72 290 L95 278 L118 292 L108 310 L82 308 Z" stroke="#F5F2EC" stroke-width="1.5" stroke-opacity="0.25" fill="rgba(245,242,236,0.04)"/>
+  <!-- China side - factory -->
+  <rect x="297" y="248" width="56" height="44" rx="2" stroke="#F5F2EC" stroke-width="2" stroke-opacity="0.5"/>
+  <rect x="309" y="258" width="10" height="10" stroke="#F5F2EC" stroke-width="1.2" stroke-opacity="0.35"/>
+  <rect x="331" y="258" width="10" height="10" stroke="#F5F2EC" stroke-width="1.2" stroke-opacity="0.35"/>
+  <path d="M325 248 L325 232 L335 232 L335 248" stroke="#E8521A" stroke-width="2"/>
+  <path d="M308 292 L341 292" stroke="#F5F2EC" stroke-width="1.5" stroke-opacity="0.2"/>
+  <!-- globe hint -->
+  <circle cx="210" cy="210" r="130" stroke="#F5F2EC" stroke-width="1" stroke-opacity="0.05"/>
+  <ellipse cx="210" cy="210" rx="130" ry="48" stroke="#F5F2EC" stroke-width="1" stroke-opacity="0.05"/>
+  <ellipse cx="210" cy="210" rx="48" ry="130" stroke="#F5F2EC" stroke-width="1" stroke-opacity="0.05"/>
+</svg>

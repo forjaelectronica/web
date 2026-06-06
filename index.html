@@ -50,12 +50,19 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 1.5rem;
     padding: 1.25rem 3rem;
     background: rgba(10,10,8,0.85);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-left: auto;
   }
 
   .nav-logo {
@@ -63,9 +70,30 @@
     font-size: 2rem;
     letter-spacing: 0.12em;
     color: var(--white);
+    text-decoration: none;
+    flex-shrink: 0;
   }
 
   .nav-logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,242,236,0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--orange); }
 
   .nav-cta {
     font-family: var(--font-mono);
@@ -77,6 +105,7 @@
     padding: 0.5rem 1.25rem;
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
   }
 
   .nav-cta:hover { background: var(--orange); color: var(--black); }
@@ -284,7 +313,7 @@
 
   .value-block-num {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--orange);
@@ -349,7 +378,6 @@
     max-width: 420px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45));
   }
 
   .value-block--mechanical {
@@ -590,7 +618,7 @@
 
   .deliver-item-title {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.9rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--orange);
@@ -757,7 +785,11 @@
   }
 
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
+    nav { padding: 1rem 1.25rem; gap: 0.75rem; }
+    .nav-right { gap: 1.25rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-link { font-size: 0.68rem; }
+    .nav-cta { font-size: 0.65rem; padding: 0.45rem 0.85rem; }
     /* Hero mobile: padding-top cubre el nav fijo (~64px) */
     .hero {
       padding: 0 1.25rem 3.5rem;
@@ -772,7 +804,7 @@
     .how-step:first-child { padding-left: 1.25rem; border-left: none; }
     .landing-intro { grid-template-columns: 1fr; gap: 2rem; }
     .value-block { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 3rem; }
-    .value-block-visual { order: -1; }
+    .value-block-visual { order: 1; }
     .value-block-visual img { max-width: 280px; margin: 0 auto; }
     .value-blocks { gap: 3rem; margin-bottom: 4rem; }
     .objection-item { grid-template-columns: 1fr; gap: 1rem; }
@@ -804,8 +836,14 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">FORJ<span>A</span></div>
-  <a href="#contacto" class="nav-cta">Hablar con el equipo</a>
+  <a href="index.html" class="nav-logo">FORJ<span>A</span></a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="como-trabajamos.html" class="nav-link">Cómo trabajamos</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+    </div>
+    <a href="#contacto" class="nav-cta">Hablar con el equipo</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -827,13 +865,10 @@
 
 <!-- LANDING — VALUE PROPS -->
 <section class="landing-section value-section">
-  <p class="section-label">Por qué FORJA</p>
-
   <div class="value-blocks">
 
-    <article class="value-block value-block--solo">
+    <article class="value-block">
       <div>
-        <p class="value-block-num">01 — Equipo, no freelancers</p>
         <h2 class="value-block-title">No contrates freelancers.<br><em>Contratá un equipo.</em></h2>
         <p class="value-block-lead">Un producto electrónico no se arma con piezas sueltas. Necesitás gente que hable el mismo idioma técnico y de negocio, y que se haga cargo de punta a punta.</p>
         <ul class="value-block-list">
@@ -842,11 +877,13 @@
           <li>A diferencia de un freelancer, somos un equipo que lleva tu proyecto de principio a fin, con un solo interlocutor.</li>
         </ul>
       </div>
+      <div class="value-block-visual" aria-hidden="true">
+        <img src="assets/team.svg" alt="" width="420" height="420" loading="lazy" />
+      </div>
     </article>
 
     <article class="value-block">
       <div>
-        <p class="value-block-num">02 — Producto listo, no consultoría</p>
         <h2 class="value-block-title">No somos una consultora.<br><em>Te entregamos tu producto.</em></h2>
         <p class="value-block-lead">Cuando cerramos, no te vamos con recomendaciones: te vamos con un paquete listo para fabricar en China.</p>
         <ul class="value-block-list">
@@ -860,9 +897,8 @@
       </div>
     </article>
 
-    <article class="value-block value-block--solo">
+    <article class="value-block">
       <div>
-        <p class="value-block-num">03 — Argentina + China</p>
         <h2 class="value-block-title">Diseño en Argentina.<br><em>Fabricación en China.</em></h2>
         <p class="value-block-lead">Diseñamos acá, cerca tuyo, con reuniones en tu idioma y en tu huso horario. Fabricamos allá, donde la escala y el costo tienen sentido — con proveedores que ya conocemos de primera mano.</p>
         <ul class="value-block-list">
@@ -870,93 +906,26 @@
           <li>Cartera de fabricantes en China validada en visitas a planta.</li>
         </ul>
       </div>
+      <div class="value-block-visual" aria-hidden="true">
+        <img src="assets/argentina-china.svg" alt="" width="420" height="420" loading="lazy" />
+      </div>
     </article>
 
-    <article class="value-block value-block--mechanical">
+    <article class="value-block">
       <div>
-        <p class="value-block-num">Diseño mecánico</p>
-        <h2 class="value-block-title">Gabinetes y piezas plásticas</h2>
+        <h2 class="value-block-title">Diseño mecánico.<br><em>Gabinetes y piezas plásticas.</em></h2>
         <p class="value-block-lead">Tu producto no termina en la placa. Tenemos ingenieros mecánicos en el equipo para diseñar carcasas, soportes y piezas plásticas listas para producir.</p>
         <ul class="value-block-list">
           <li>Prototipos en impresión 3D para validar ergonomía y ensamble.</li>
           <li>Piezas en molde de silicona para series cortas antes de la inyección.</li>
           <li>Diseño orientado a inyección plástica cuando llegue el volumen.</li>
         </ul>
-        <p class="value-block-note">Hardware + mecánica + firmware en un solo equipo.</p>
       </div>
       <div class="value-block-visual" aria-hidden="true">
         <img src="assets/housing.png" alt="Vista explotada de un gabinete plástico con tornillería" width="420" height="420" loading="lazy" />
       </div>
     </article>
 
-  </div>
-
-  <!-- OBJECTIONS -->
-  <p class="landing-intro-headline" style="margin-bottom: 0.5rem;">Lo que probablemente estás pensando</p>
-  <p class="objections-subtitle">Lo respondemos sin vueltas.</p>
-
-  <div class="objection-item">
-    <div class="objection-q">"¿Puedo fabricar sin depender de ustedes?"</div>
-    <div class="objection-a">
-      <strong>El diseño es tuyo desde el día uno.</strong> Archivos de esquemático, layout de PCB, código fuente, BOM con proveedores alternativos y documentación de producción. Cuando terminamos el proyecto, podés llevárselo a cualquier fabricante del mundo sin necesitarnos. Nosotros, al terminar, te damos recomendaciones y cotizaciones con distintos fabricantes.
-    </div>
-  </div>
-
-  <div class="objection-item">
-    <div class="objection-q">"No sé si puedo confiar en un estudio externo para algo tan crítico."</div>
-    <div class="objection-a">
-      <strong>Entendemos esa desconfianza, y es válida.</strong> Por eso desde el primer día tenés acceso a un tablero de proyecto en tiempo real: qué estamos haciendo, qué decisiones tomamos y por qué, qué sigue. Sin reportes semanales genéricos. Información real, cuando la querés.
-    </div>
-  </div>
-
-  <div class="objection-item">
-    <div class="objection-q">"¿Cuánto tiempo va a tomar esto realmente?"</div>
-    <div class="objection-a">
-      Depende del proyecto, y te vamos a ser honestos en la cotización. <strong>No prometemos plazos imposibles para ganar el trabajo y después pedir extensiones.</strong> Lo que sí prometemos es un cronograma real, con hitos definidos y visibilidad total del avance.
-    </div>
-  </div>
-
-  <div class="objection-item">
-    <div class="objection-q">"¿Tienen experiencia en la industria?"</div>
-    <div class="objection-a">
-      Tenemos base en electrónica automotriz — una de las industrias con certificaciones más exigentes del mundo — y en desarrollo de sistemas embebidos, IoT, cloud y firmware a escala. <strong>Si tu proyecto tiene requisitos específicos de certificación, eso es exactamente lo que nos gusta.</strong>
-    </div>
-  </div>
-
-  <div class="objection-item">
-    <div class="objection-q">"¿Qué pasa si necesito también carcasa, diseño mecánico, o una app?"</div>
-    <div class="objection-a">
-      Gabinetes, piezas plásticas (3D, molde de silicona o inyección) y firmware en el mismo proyecto. Leandro cubre apps móviles, plataformas web y cloud cuando hace falta. <strong>Un proveedor. Todo el producto.</strong>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how-section">
-  <div class="how-inner">
-    <p class="landing-intro-headline">Cómo trabajamos</p>
-    <div class="how-steps">
-      <div class="how-step">
-        <div class="step-num">01</div>
-        <div class="step-title">Requerimiento</div>
-        <div class="step-desc">Organizamos una reunion con vos, entendemos tu idea, tus restricciones de costo y los requisitos técnicos. Sin jerga. Sin presupuestos a ciegas.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">02</div>
-        <div class="step-title">Propuesta cerrada</div>
-        <div class="step-desc">Cotización fija por el proyecto completo. Sabés exactamente qué recibís y cuándo, antes de comprometerte.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">03</div>
-        <div class="step-title">Desarrollo visible</div>
-        <div class="step-desc">Diseño de hardware, firmware y documentación con acceso en tiempo real al tablero de proyecto. Ves cada decisión técnica.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">04</div>
-        <div class="step-title">Prototipo validado</div>
-        <div class="step-desc">Entregamos prototipo funcional + todos los archivos + cotizaciones de fabricación en China y Argentina. Listo para producción.</div>
-      </div>
-    </div>
   </div>
 </section>
 
