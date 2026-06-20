@@ -10,6 +10,22 @@
 
   gtag('config', 'AW-18182115416');
 </script>
+<!-- Event snippet for Solicitud de presupuesto conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18182115416/fa-uCOjPzcIcENig9N1D',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FORJA — Tu producto electrónico, listo para producción</title>
@@ -1095,6 +1111,11 @@
     btn.textContent = 'ENVIANDO...';
     btn.disabled = true;
     err.style.display = 'none';
+
+    // Trackear conversión Google Ads (click en "QUIERO UNA COTIZACIÓN")
+    if (typeof gtag_report_conversion === 'function') {
+      gtag_report_conversion();
+    }
 
     // Trackear click en GA4 (evento personalizado)
     if (typeof gtag !== 'undefined') {
